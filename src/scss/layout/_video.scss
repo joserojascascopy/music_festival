@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video {
+    position: relative;
+    min-height: 50rem;
+    max-height: 70rem;
+    overflow: hidden; // Para ocultar lo que se desborda del div
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            270deg,
+            rgba(v.$morado, 60%),
+            rgba(darken(v.$morado, 20%), 90%)
+        ); // darken es una función propia de scss
+
+
+        // Formato anterior para posicionar un elemento teniendo position
+        // top: 0;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
+        // Con esto ocupa todo el espacio o div 
+
+        display: flex; // Para posicionar un elemento debo ir al padre
+        align-items: center;
+    }
+
+    video {
+        display: block;
+        width: auto; // Para dispositivos con pantallas pequeñas
+
+        @include m.desktop {
+            width: 100%;
+        }
+    }
+}
+
+.contenido-video {
+    z-index: 10; // Colocamos por encima del overlay para poder seleccionar el elemento
+    
+    h2 {
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+
+    p {
+        background-color: v.$rosa;
+        display: inline-block; // Display inline no nos permite usar margin
+        color: v.$blanco;
+        padding: 2rem;
+        font-size: 2.4rem;
+        font-weight: bold;
+        margin: 0;
+    }
+}

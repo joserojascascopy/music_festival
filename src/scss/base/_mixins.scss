@@ -17,3 +17,15 @@
         @content;
     }
 }
+
+@mixin contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+@mixin grid($columnas : 1, $gap : 5rem) { // En caso de no pasarle un valor a gap toma como default los 5rem
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    column-gap: $gap;
+}
