@@ -27,7 +27,7 @@
 @mixin grid($columnas : 1, $gap : 5rem) { // En caso de no pasarle un valor a gap toma como default los 5rem
     display: grid;
     grid-template-columns: repeat($columnas, 1fr);
-    column-gap: $gap;
+    gap: $gap;
 }
 
 @mixin reset-list {
